@@ -1,0 +1,11 @@
+{
+	"name": "fish-kill",
+	"version": "0.0.1",
+	"description": "Fish Kill report and search cases",
+	"main": "server.js", 
+	"author": "Rafael Mena",
+	"dependencies": {
+		"express": "latest",
+		"mongodb": "latest"
+	}
+}

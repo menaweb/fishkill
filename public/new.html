@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="fishkillApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fish Kill New Report</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container" ng-controller="NewReportCtrl">
+		<!--Cabecera-->
+		<div class="jumbotron text-center">
+			<h1>Fish Kill - New Report </h1>
+		</div>
+
+		<div id="new-form" class="row">
+			<div class="col-sm-12">
+				<form name="form" class="form-horizontal css-form" role="form">
+
+					<!--CONTACT DATA-->
+					<fieldset class="contact-fieldset well">
+						<div class="form-group">
+							<div class="col-sm-12">
+						    	<legend>Contact Data</legend>
+						    </div>
+
+					    	<label for="uFirstName" class="col-xs-3 col-sm-2 control-label">First Name</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.firstname" name="uFirstName">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uLastName" class="col-xs-3 col-sm-2 control-label">Last Name</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.lastname" name="uLastName">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uOrganization" class="col-xs-3 col-sm-2 control-label">Organization</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.organization" name="uOrganization">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uAddress" class="col-xs-3 col-sm-2 control-label">Address</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.address" name="uAddress">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uCity" class="col-xs-3 col-sm-2 control-label">City</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.city" name="uCity">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uState" class="col-xs-3 col-sm-2 control-label">State</label>
+					    	<div class="col-xs-9 col-sm-4">
+						    	<select class="form-control" ng-model="user.state" name="uState">
+								  <option>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uZipCode" class="col-xs-3 col-sm-2 control-label">Zip Code</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.zipcode" name="uZipCode">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uPhone1" class="col-xs-3 col-sm-2 control-label">Phone</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="text" class="form-control" ng-model="user.phone" name="uPhone">
+					    	</div>
+					  	</div>
+
+					  	<div class="form-group">
+					    	<label for="uEmail" class="col-xs-3 col-sm-2 control-label">Email</label>
+					    	<div class="col-xs-9 col-sm-4">
+					    		<input type="email" class="form-control" ng-model="user.email" name="uEmail">
+					    	</div>
+					  	</div>
+					</fieldset>
+
+
+					<!--REPORT DATA-->
+					<fieldset class="report-fieldset well">
+						<!--WATER TYPE-->
+						<div class="form-group water-type">
+					    	<div class="col-sm-12">
+					    		<legend>Water Type</legend>
+					    	</div>
+
+					    	<div class="col-sm-2">
+						    	<div class="radio">
+								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="brackish">
+								    <label>Brackish</label>
+							    </div>
+						    </div>
+
+					    	<div class="col-sm-2">
+						    	<div class="radio">
+								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="freshwater">
+								    <label>Freshwater</label>
+							    </div>
+						    </div>
+
+					    	<div class="col-sm-2">
+						    	<div class="radio">
+								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="saltwater">
+								    <label>Saltwater</label>
+							    </div>
+						    </div>
+					  	</div>
+
+					  	<!--SPECIES-->
+					  	<div class="form-group species-fields">
+					  		<div class="col-sm-12">
+					    		<legend>Number Each Species</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+						    	<div class="row col-sm-12 vert-span">
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3">
+							    			<input type="text" class="form-control" name="uSpeciesLarBass">
+							    		</div>
+							    		<label for="uSpeciesLarBass" class="control-label">Largemouth Bass</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+								    		<input type="text" class="form-control" name="uSpeciesBream">
+								    	</div>
+								    	<label for="uSpeciesBream" class="control-label">Bream</label>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesJCrevalle">
+							    		</div>
+							    		<label for="uSpeciesJCrevalle" class="control-label">Jack Crevalle</label>
+							    	</div>
+						    	</div>
+
+						    	<div class="row col-sm-12 vert-span">
+						    		<div class="col-sm-4">
+							    		<div class="col-sm-3">
+							    			<input type="text" class="form-control" name="uSpeciesSheep">
+							    		</div>
+							    		<label for="uSpeciesSheep" class="control-label">Sheepshead</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesTilapia">
+							    		</div>
+							    		<label for="uSpeciesTilapia" class="control-label">Tilapia</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesBlueCrab">
+							    		</div>
+							    		<label for="uSpeciesBlueCrab" class="control-label">Blue Crab</label>
+							    	</div>
+						    	</div>
+
+						    	<div class="row col-sm-12 vert-span">
+						    		<div class="col-sm-4">
+							    		<div class="col-sm-3">
+							    			<input type="text" class="form-control" name="uSpeciesCatfish">
+							    		</div>
+							    		<label for="uSpeciesCatfish" class="control-label">Catfish</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesMullet">
+							    		</div>
+							    		<label for="uSpeciesMullet" class="control-label">Mullet</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesSnook">
+							    		</div>
+							    		<label for="uSpeciesSnook" class="control-label">Snook</label>
+							    	</div>
+						    	</div>
+
+						    	<div class="row col-sm-12 vert-span">
+						    		<div class="col-sm-4">
+							    		<div class="col-sm-3">
+							    			<input type="text" class="form-control" name="uSpeciesTrout">
+							    		</div>
+							    		<label for="uSpeciesTrout" class="control-label">Trout</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesBluegill">
+							    		</div>
+							    		<label for="uSpeciesBluegill" class="control-label">Bluegill</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesGrunt">
+							    		</div>
+							    		<label for="uSpeciesGrunt" class="control-label">Grunt</label>
+							    	</div>
+						    	</div>
+
+						    	<div class="row col-sm-12 vert-span">
+						    		<div class="col-sm-4">
+							    		<div class="col-sm-3">
+							    			<input type="text" class="form-control" name="uSpeciesRedDrum">
+							    		</div>
+							    		<label for="uSpeciesRedDrum" class="control-label">Red Drum</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesStingray">
+							    		</div>
+							    		<label for="uSpeciesStingray" class="control-label">Stingray</label>
+							    	</div>
+
+							    	<div class="col-sm-4">
+							    		<div class="col-sm-3 col-sm-offset-2">
+							    			<input type="text" class="form-control" name="uSpeciesUnknow">
+							    		</div>
+							    		<label for="uSpeciesUnknow" class="control-label">I Don't Know</label>
+							    	</div>
+						    	</div>
+
+						    	<div class="col-sm-12 custom-species vert-span">
+						    		<div class="col-sm-3">
+						    			<input type="text" class="form-control" name="uSpeciesNewName">
+						    		</div>
+						    		<label for="uSpecies" class="col-sm-3 text-center">and approximate number:</label>
+						    		<div class="col-sm-1">
+						    			<input type="text" class="form-control" name="uSpeciesNewCount">
+						    		</div>
+						    	</div>
+						    </div>
+					    </div>
+
+
+					    <!--FISH STATUS-->
+					    <div class="form-group fish-status">
+					  		<div class="col-sm-12">
+					    		<legend>Were the fish...</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+					    		<div class="col-sm-3">
+							    	<div class="checkbox">
+						    			<label>
+						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusAlive" value="alive">
+						    				Alive
+						    			</label>
+							    	</div>
+							    </div>
+
+							    <div class="col-sm-3">
+							    	<div class="checkbox">
+						    			<label>
+						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusDead" value="dead">
+						    				Dead
+						    			</label>
+							    	</div>
+							    </div>
+
+							    <div class="col-sm-3">
+							    	<div class="checkbox">
+						    			<label>
+						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusDescomposed" value="descomposed">
+						    				Descomposed
+						    			</label>
+							    	</div>
+							    </div>
+
+							    <div class="col-sm-3">
+							    	<div class="checkbox">
+						    			<label>
+						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusGasping" value="gasping">
+						    				Gasping for air
+						    			</label>
+							    	</div>
+							    </div>
+					    	</div>
+					    </div>
+
+
+
+					    <!--FISH FEATURES-->
+					    <div class="form-group fish-features">
+					  		<div class="col-sm-12">
+					    		<legend>Does the fish have...</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+					    		<div class="row col-sm-12">
+						    		<div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uBleeding" value="bleeding">
+							    				Bleeding
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uDeformity" value="deformity">
+							    				Deformity
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uDecoloration" value="discoloration">
+							    				Discoloration/spots
+							    			</label>
+								    	</div>
+								    </div>
+								</div>
+
+								<div class="row col-sm-12">
+						    		<div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uSores" value="sores">
+							    				Sores
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uMissingParts" value="missing-parts">
+							    				Missing Parts
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uParasites" value="parasites">
+							    				Parasites
+							    			</label>
+								    	</div>
+								    </div>
+								</div>
+
+
+								<div class="row col-sm-12">
+						    		<div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uRedFinsLips" value="red-fins">
+							    				Red fins or lips
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uTumors" value="tumors">
+							    				Tumors
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-4">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='fish_features' name="uNormal" value="normal">
+							    				Looked Normal
+							    			</label>
+								    	</div>
+								    </div>
+								</div>
+					    	</div>
+					    </div>
+
+
+					    <!--WATER FEATURES-->
+					   	<div class="form-group water-features">
+					  		<div class="col-sm-12">
+					    		<legend>About the water...</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+					    		<div class="row col-sm-12">
+						    		<div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterDark" value="dark">
+							    				Dark
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterWeeds" value="full-weeds">
+							    				Full of weeds
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterFunny" value="funny-color">
+							    				Funny color
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterGreen" value="green">
+							    				Green
+							    			</label>
+								    	</div>
+								    </div>
+								</div>
+
+								<div class="row col-sm-12">
+						    		<div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterNormal" value="normal">
+							    				Looked Normal
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterMilky" value="milky">
+							    				Milky
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterOily" value="oily">
+							    				Oily
+							    			</label>
+								    	</div>
+								    </div>
+
+								    <div class="col-sm-3">
+								    	<div class="checkbox">
+							    			<label>
+							    				<input type="checkbox" class="" check-list='water_features' name="uWaterRed" value="red">
+							    				Red
+							    			</label>
+								    	</div>
+								    </div>
+								</div>
+					    	</div>
+					    </div>
+
+
+
+					    <!--WATER NAME-->
+					   	<div class="form-group water-name">
+					  		<div class="col-sm-12">
+					    		<legend>Does the water body have a name...</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+					    		<div class="row col-sm-12">
+					    			<div class="col-sm-12">
+					    				<input type="text" class="form-control" name="uBodyName">
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div>
+
+
+
+					    <!--MORE INFO-->
+					   	<div class="form-group more-info">
+					  		<div class="col-sm-12">
+					    		<legend>Tell us anything else you think is important</legend>
+					    	</div>
+					    	
+					    	<div class="container-fluid">
+					    		<div class="row col-sm-12">
+					    			<div class="col-sm-12">
+					    				<textarea class="form-control" name="uMoreInfo" rows="10"></textarea>
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div>
+				    	
+					</fieldset>
+
+					<button type="submit" ng-click="showFormData()" class="btn btn-success btn-lg">
+						<span class="glyphicon glyphicon-cloud-upload"></span>  Submit
+					</button>
+
+					{{fish_features | json}}
+					{{water_features | json}}
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<style type="text/css">
+      .css-form input.ng-invalid.ng-dirty {
+        background-color: #FA787E;
+      }
+    
+      .css-form input.ng-valid.ng-dirty {
+        background-color: #78FA89;
+      }
+
+      .vert-span {
+      	margin-bottom: 15px;
+      }
+
+      #new-form {
+      	margin-bottom: 50px;
+      }
+
+
+    </style>
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/controllers.js"></script>
+
+	<!--<script>
+
+	$( "form" ).submit(function( event ) {
+	  console.log( $( this ).serializeArray() );
+	  event.preventDefault();
+	});
+	
+	</script>-->
+
+
+</body>
+</html>
