@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="es" ng-app="fishkillApp">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Fish Kill New Report</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-</head>
-<body>
 
 	<div class="container" ng-controller="NewReportCtrl">
 		<!--Cabecera-->
@@ -105,22 +96,28 @@
 
 					    	<div class="col-sm-2">
 						    	<div class="radio">
-								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="brackish">
-								    <label>Brackish</label>
+								    <label>
+								    	<input type="radio" ng-model="water_type" name="uWaterType1"  value="brackish">
+								   		Brackish
+								   	</label>
 							    </div>
 						    </div>
 
 					    	<div class="col-sm-2">
 						    	<div class="radio">
-								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="freshwater">
-								    <label>Freshwater</label>
+									<label>
+										<input type="radio" ng-model="water_type" name="uWaterType"  value="freshwater">
+									    Freshwater
+									</label>
 							    </div>
 						    </div>
 
 					    	<div class="col-sm-2">
 						    	<div class="radio">
-								    <input type="radio" ng-model="report.water_type" name="uWaterType"  value="saltwater">
-								    <label>Saltwater</label>
+								    <label>
+									    <input type="radio" ng-model="water_type" name="uWaterType"  value="saltwater">
+									    Saltwater
+									</label>
 							    </div>
 						    </div>
 					  	</div>
@@ -270,7 +267,7 @@
 					    		<div class="col-sm-3">
 							    	<div class="checkbox">
 						    			<label>
-						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusAlive" value="alive">
+						    				<input type="checkbox" class="" check-list='fish_status' name="uStatusAlive" value="alive">
 						    				Alive
 						    			</label>
 							    	</div>
@@ -279,7 +276,7 @@
 							    <div class="col-sm-3">
 							    	<div class="checkbox">
 						    			<label>
-						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusDead" value="dead">
+						    				<input type="checkbox" class="" check-list='fish_status' name="uStatusDead" value="dead">
 						    				Dead
 						    			</label>
 							    	</div>
@@ -288,7 +285,7 @@
 							    <div class="col-sm-3">
 							    	<div class="checkbox">
 						    			<label>
-						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusDescomposed" value="descomposed">
+						    				<input type="checkbox" class="" check-list='fish_status' name="uStatusDescomposed" value="descomposed">
 						    				Descomposed
 						    			</label>
 							    	</div>
@@ -297,7 +294,7 @@
 							    <div class="col-sm-3">
 							    	<div class="checkbox">
 						    			<label>
-						    				<input type="checkbox" class="" ng-model="report.status" name="uStatusGasping" value="gasping">
+						    				<input type="checkbox" class="" check-list='fish_status' name="uStatusGasping" value="gasping">
 						    				Gasping for air
 						    			</label>
 							    	</div>
@@ -559,22 +556,3 @@
 
 
     </style>
-
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/directives.js"></script>
-	<script src="js/controllers.js"></script>
-
-	<!--<script>
-
-	$( "form" ).submit(function( event ) {
-	  console.log( $( this ).serializeArray() );
-	  event.preventDefault();
-	});
-	
-	</script>-->
-
-
-</body>
-</html>
