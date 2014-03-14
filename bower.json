@@ -1,0 +1,9 @@
+{
+	"name": "fish-kill",
+	"version": "0.0.1",
+	"dependencies": {
+		"angular": "1.2.12",
+		"angular-route": "1.2.12",
+		"angular-bootstrap": "latest"
+	}
+}

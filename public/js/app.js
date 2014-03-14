@@ -2,6 +2,7 @@
 
 var fishkillApp = angular.module('fishkillApp', [
 	'ngRoute',
+	'ui.bootstrap',
 	'fishkillControllers',
 	'fishkillDirectives'
 ]);
