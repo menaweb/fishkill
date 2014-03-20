@@ -1,11 +1,18 @@
 {
-	"name": "fish-kill",
+	"name": "fishkill",
 	"version": "0.0.1",
-	"description": "Fish Kill report and search cases",
-	"main": "server.js", 
+	"description": "FishKill report and search cases",
+	"main": "app.js", 
 	"author": "Rafael Mena",
 	"dependencies": {
-		"express": "latest",
-		"mongodb": "latest"
+		"express": "*",
+		"jade": "*",
+		"passport": "*",
+		"passport-local": "*",
+		"mongoose": "~3.5.5",
+    	"bcrypt": "~0.7.3"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.1"
 	}
 }
