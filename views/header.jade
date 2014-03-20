@@ -1,0 +1,21 @@
+header
+	doctype html
+	html
+		head
+			title Passport-Local Example
+		body
+			if (!user)
+				p
+					a(href='/') Home
+			else
+				if (user.admin)
+					p
+						a(href='/member') Home |
+						a(href='/admin') Admin Page |
+						a(href='/account') Account |
+						a(href='/logout') Log Out |
+				else
+					p
+						a(href='/member') Home |
+						a(href='/account') Account |
+						a(href='/logout') Log Out |

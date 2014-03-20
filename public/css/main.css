@@ -5,6 +5,8 @@
 /*Fix route changes in empty href attributes to link tags with Angular-bootstrap*/
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.header-buttons { margin-bottom: 30px;}
+
 
 form.css-form input.ng-invalid.ng-dirty {
     background-color: #FA787E;
